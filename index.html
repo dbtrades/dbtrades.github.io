@@ -1,0 +1,148 @@
+	
+<style>
+hr.dashed {
+  border-top: 3px dashed #bbb;
+}
+.column1 {
+  float: left;
+  width: 40%;
+  height:95%
+}
+.column2{
+  float: left;
+  width: 30%;
+  height:95%
+}
+.column3 {
+  float: left;
+  width: 30%;
+  height:95%
+}
+
+/* Stops the float property from affecting content after the columns */
+.columns:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+<body>
+<div style="height:5%;background-color:yellow;"> <h2 style="background-color:lightgrey;">Welcome to DB Trades</h1></div>
+
+<div class="columns">
+  <div class="column1" style="background-color:grey;">
+
+
+ <label><b>Share the Quote     
+ </b>    
+</label> 
+<input type="text" name="Uname" id="Uname" placeholder="quote">    
+<br><br>    
+
+<button onclick="verifyfn()">Verify Quote</button>    
+<br> 
+<hr class="dashed">
+<br>
+
+
+ <label style="display:block;width:50px;"><b>Select-Scrip    
+ </b>    
+</label>  
+<select id="token">
+
+</select>
+
+<select id="ttype">
+  <option value="EQ">EQ</option>
+  <option value="FO">FO</option>
+</select>
+<select id="buysell">
+  <option value="buy">buy</option>
+  <option value="sell">sell</option>
+</select>
+
+<input  id="quant" placeholder="quantity" style="width: 60px;color:red"></input>
+<button id ="getready" onclick="getready()">getready</button>
+<br><br>
+
+<hr class="dashed">
+
+ <label style="display:block;width:50px;"><b>Price     
+ </b>    
+</label>   
+<input id="price1" placeholder="price" style="width: 60px;color:red" ></input>
+<button id="execute" onclick="execute()">ExecuteOrder</button>
+<button id="cancel" onclick="cancelorder()">CancelOrder</button>
+<hr class="dashed">
+<br>
+
+<label style="display:block;width:50px;"><b>Stoploss     
+ </b>    
+</label>   
+<input type="number"  min="0" max="99999999" step="2" value="0" id="stoploss1"  style="width: 60px;color:red" ></input>
+<button onclick="updstoploss()">Upd</button>
+<br>
+ <label style="display:block;width:50px;"><b>Target     
+ </b>    
+</label>   
+<input id="target1" oninput=inputevent1() type="number"  min="0" max="99999999" step="2" value="0"  style="width: 60px;color:red" ></input>
+<button onclick="updtarget()">Upd</button>
+<br><br>
+
+<br><br>	
+<hr class="dashed">
+
+<button id="exit" onclick="exitnow()">Exitorder(Market)</button>
+<hr class="dashed">
+<br>
+<br>
+<P> Add a Ticker</p>
+<input id="additems1" ></input>
+<button id="additem" onclick="additems1()">Check</button>
+<select id="addselect"></select>
+<button onclick="additems2()">Add</button>
+<h1> Live Price </h>
+<h1 id="liveprice"><h1>
+
+
+
+
+  </div>
+
+  <div class="column2" style="background-color:green;">
+<textarea id="console" style="display:block;width:100%;color:#fff;height:100%;background-color:black"> </textarea>
+  </div>
+
+
+  <div class="column3" style="background-color:red;">
+    <div style="background-color:green;height:50%;"> 
+	   <div style="background-color:blue;height:10%;">  
+	             Buy Screenshot
+	           <a href="" id="downloadbuy" download="buy.jpg">download</a>
+		
+
+	   </div>
+	   <div style="background-color:silver;height:90%;">  
+		<img id="imgElem" style="width:100%;display:block;height:100%;background-color:grey" ></img>
+	</div>	
+    </div>
+    <div style="background-color:orange;height:50%;">
+	   <div style="background-color:blue;height:10%;">  
+		 Sell Screenshot
+		<a href="" id="downloadsell" download="sell.jpg">download</a>
+	</div>
+	   <div style="background-color:silver;height:90%;"> 
+		<img id="imgElem1" style="width:100%;display:block;height:100%;background-color:grey" ></img>
+	 </div>	
+    </div>
+		
+  </div>
+
+
+
+</div>
+
+
+</body>
+</html>
